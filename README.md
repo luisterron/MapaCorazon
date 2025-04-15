@@ -58,6 +58,6 @@ npm run dev
 
 ![Interfaz de la app](/assets/interfaz.png)
 
-![Ejemplo de PDF generado](/assets/mapa-corazon.png)
+![Ejemplo de PDF generado](/assets/mapa-corazon.pdf)
 
 
