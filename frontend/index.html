@@ -1,0 +1,80 @@
+<!-- frontend/index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Mapas Románticos</title>
+    
+    <!-- MapLibre GL JS -->
+    <link href="/public/maplibre/maplibre-gl.css" rel="stylesheet" />
+    <!-- MapTiler Geocoding -->
+    <link href="https://cdn.maptiler.com/maptiler-sdk-js/v1.1.1/maptiler-sdk.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl-geocoder/1.5.0/maplibre-gl-geocoder.min.css" rel="stylesheet" />
+    <!-- DatePicker -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <div class="container">
+        <h1>Generador de Mapas Románticos</h1>
+        
+        <div class="form-section">
+            <form id="pdfForm">
+                <div class="form-group">
+                    <label for="title">Título del Momento</label>
+                    <input type="text" id="title" required placeholder="Ej: Nuestro Primer Encuentro">
+                </div>
+
+                <div class="form-group">
+                    <label for="names">Nombres</label>
+                    <input type="text" id="names" required placeholder="Ej: Sara & Alejandro">
+                </div>
+
+                <div class="form-group">
+                    <label for="date">Fecha</label>
+                    <input type="text" id="date" required placeholder="Selecciona una fecha">
+                </div>
+
+                <div class="form-group">
+                    <label for="geocoder">Ubicación</label>
+                    <div id="geocoder"></div>
+                    <input type="hidden" id="location" required>
+                </div>
+
+                <div class="form-group coordinates">
+                    <div>
+                        <label for="lat">Latitud</label>
+                        <input type="number" id="lat" step="any" required readonly>
+                        <div id="latDisplay" class="coords-display"></div>
+                    </div>
+                    <div>
+                        <label for="lng">Longitud</label>
+                        <input type="number" id="lng" step="any" required readonly>
+                        <div id="lngDisplay" class="coords-display"></div>
+                    </div>
+                </div>
+
+                <button type="submit">Generar PDF</button>
+            </form>
+        </div>
+
+        <div class="map-section">
+            <div id="map"></div>
+        </div>
+    </div>
+
+    <div class="loading">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/public/maplibre/maplibre-gl.js"></script>
+    <script src="https://cdn.maptiler.com/maptiler-sdk-js/v1.1.1/maptiler-sdk.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl-geocoder/1.5.0/maplibre-gl-geocoder.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/l10n/es.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
